@@ -130,6 +130,6 @@ Listagem e visualização de locais onde o usuário pode buscar ajuda.
 - Suporte a novos componentes e páginas com facilidade
 
 
-Licença
+## Licença
 
 Este projeto foi desenvolvido para fins acadêmicos e de demonstração, com foco em saúde mental e bem-estar de jovens do Lar São Domingos em Maceió/AL em matéria de Extensão.
