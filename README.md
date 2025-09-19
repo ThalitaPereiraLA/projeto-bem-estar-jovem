@@ -115,7 +115,7 @@ Seção com vídeos explicativos sobre saúde mental e bem-estar.
 Listagem e visualização de locais onde o usuário pode buscar ajuda.
 
 ## Considerações Técnicas
-# Performance
+ Performance
 
 - Vite para build rápido e leve
 
