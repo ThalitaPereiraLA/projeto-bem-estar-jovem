@@ -47,7 +47,7 @@ A plataforma reúne ferramentas interativas, frases de apoio, vídeos educativos
 
 ## Instalação das Dependências
 
-# Clonar o repositório
+## Clonar o repositório
 
 ```bash
 git clone <repository-url>
@@ -94,23 +94,23 @@ bem-estar-jovem/
 ```
 
 ## Funcionalidades Principais
-- # Exercícios de Respiração
+- Exercícios de Respiração
 
 Um círculo animado guia o usuário em exercícios de respiração para relaxamento.
 
-- # Check-in Emocional
+-  Check-in Emocional
 
 Permite que o jovem registre como está se sentindo e visualize seu progresso.
 
-- # Botão SOS
+-  Botão SOS
 
 Exibe frases motivacionais de apoio imediato e informações de contato de ajuda.
 
-- # Vídeos Educativos
+- Vídeos Educativos
 
 Seção com vídeos explicativos sobre saúde mental e bem-estar.
 
-- # Locais de Apoio
+- Locais de Apoio
 
 Listagem e visualização de locais onde o usuário pode buscar ajuda.
 
