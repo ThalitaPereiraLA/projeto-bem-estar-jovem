@@ -14,7 +14,7 @@ import HelpButton from "./components/HelpButton";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <div className="min-h-screen flex flex-col bg-gradient-to-br from-yellow-200 via-blue-100 to-purple-200 text-gray-800">
+      <div className="min-h-screen flex flex-col bg-gradient-to-br from-yellow-200 via-blue-100 to-purple-200 text-gray-800 font-sans">
         <Header />
         <main className="flex-1 p-4">
           <Routes>
