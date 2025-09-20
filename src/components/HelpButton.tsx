@@ -1,16 +1,21 @@
 import { Link } from "react-router-dom";
-import { FaQuestionCircle } from "react-icons/fa"; // Ícone de ajuda
+import { FaQuestionCircle } from "react-icons/fa";
 
 export default function HelpButton() {
   return (
     <div className="fixed bottom-6 right-6">
       <Link
         to="/help"
-        className="flex items-center px-8 py-4 bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-white font-semibold rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-300 ease-in-out tracking-wide hover:bg-gradient-to-r hover:from-red-600 hover:via-red-700 hover:to-red-800"
+        className="flex items-center gap-3 px-6 py-3 rounded-full font-semibold text-white shadow-lg transform transition-all duration-300 ease-in-out hover:scale-110 hover:shadow-[0_0_20px_rgba(16,185,129,0.7)]"
+        style={{
+          background: "var(--gradient-inspire)", // usa o gradiente padrão
+        }}
       >
-        <FaQuestionCircle className="mr-3 text-2xl transform hover:scale-110 transition-all duration-200 ease-in-out" /> 
+        <FaQuestionCircle className="text-2xl transition-transform duration-300 group-hover:rotate-12" />
         <span className="text-lg">Precisa de ajuda agora?</span>
       </Link>
     </div>
   );
 }
+
+

@@ -18,6 +18,14 @@
   /* Sombras */
   --shadow-breathe: 0 20px 60px -10px hsl(var(--breathe-inspire) / 0.3);
   --shadow-glow: 0 0 40px hsl(var(--breathe-inspire) / 0.4);
+
+  --gradient-calm: linear-gradient(135deg, hsl(167 85% 65%), hsl(190 95% 70%));
+  --gradient-motivation: linear-gradient(135deg, hsl(20 95% 60%), hsl(35 95% 60%));
+  --gradient-comfort: linear-gradient(135deg, hsl(224 70% 60%), hsl(250 85% 68%));
+
+  --sos-calm-foreground: #ffffff;
+  --sos-motivation-foreground: #ffffff;
+  --sos-comfort-foreground: #ffffff;
 }
 
 /* Estilo para o corpo */
@@ -53,4 +61,54 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 9999px;
+  background: linear-gradient(to right, var(--gradient-inspire) 50%, #ddd 50%);
+}
+
+input[type="range"]::-moz-range-track {
+  height: 8px;
+  border-radius: 9999px;
+  background: linear-gradient(to right, var(--gradient-inspire) 50%, #ddd 50%);
+}
+
+/* Base do range */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;                 /* altura da barra */
+  border-radius: 9999px;
+  background: #ddd;            /* fundo cinza padrão */
+}
+
+/* Deixa a TRACK transparente pra enxergar o background do input */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 9999px;
+  background: transparent;
+}
+input[type="range"]::-moz-range-track {
+  height: 8px;
+  border-radius: 9999px;
+  background: transparent;
+}
+
+/* Thumb (bolinha) com o gradiente padrão */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--gradient-inspire);
+  border: 0;
+  cursor: pointer;
+  margin-top: -5px;            /* centraliza na barra de 8px */
+}
+input[type="range"]::-moz-range-thumb {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--gradient-inspire);
+  border: 0;
+  cursor: pointer;
 }

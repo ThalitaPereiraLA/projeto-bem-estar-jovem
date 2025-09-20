@@ -29,10 +29,13 @@ export default function CheckIn() {
         max={100}
         value={value}
         onChange={(e) => setValue(Number(e.target.value))}
-        className="w-64 h-2 bg-gray-300 rounded-full"  // Ajuste da barra
+        className="w-64 rounded-full appearance-none"   // tire a h-2 (já controlamos no CSS)
         style={{
-          // Aplica diretamente o gradiente da cor personalizada ao slider
-          background: `linear-gradient(to right, hsl(142, 70%, 55%) ${value}%, #ddd ${value}%)`,  
+          background: '#ddd',                  // base cinza
+          backgroundImage: 'var(--gradient-inspire)', // gradiente padrão
+          backgroundSize: `${value}% 100%`,    // preenche só até o valor
+          backgroundRepeat: 'no-repeat',
+          borderRadius: '9999px',
         }}
       />
       <p className="mt-2 text-center">{messages[idx]}</p>

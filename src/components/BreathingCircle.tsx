@@ -89,7 +89,7 @@ export default function BreathingCircle() {
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-emerald-500/10 to-teal-500/10 blur-3xl animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-2 [10%] -translate-x-1/2 w-96 h-96 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 blur-3xl animate-float" style={{ animationDelay: '2s' }} />
       </div>
 
       {/* Main Content */}
@@ -134,7 +134,7 @@ export default function BreathingCircle() {
   <div className="absolute inset-0 flex items-center justify-center">
     <AnimatePresence mode="wait">
       <motion.div
-  className="w-80 h-80 rounded-full flex items-center justify-center breathe-circle relative overflow-hidden"
+  className="w-80 h-80 mt-20 rounded-full flex items-center justify-center breathe-circle relative overflow-hidden"
   style={{
     background: steps[step].gradient, // Muda a cor de fundo conforme a fase
   }}
@@ -162,8 +162,8 @@ export default function BreathingCircle() {
   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-pulse" />
 
   {/* Conteúdo dentro do círculo */}
-  <div className="relative z-10 text-center">
-    <h2 className="text-4xl font-bold mb-2 breathe-text">
+  <div className="flex flex-col items-center justify-center h-full">
+    <h2 className="text-4xl font-bold mb-4 breathe-text">
       {steps[step].label}
     </h2>
     <p className="text-lg opacity-90 breathe-text">
@@ -201,8 +201,8 @@ export default function BreathingCircle() {
         {running && (
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center mb-8"
+            animate={{ opacity: 1, y: - 10 }}
+            className="text-center mb-6"
           >
             <p className="text-xl text-muted-foreground">
               Etapa {step + 1} de {steps.length}
@@ -239,7 +239,7 @@ export default function BreathingCircle() {
         {running && (
           <motion.div
             initial={{ opacity: 1, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 20 }}
             className="mt-12 text-center"
           >
             <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6 border border-border/50">
