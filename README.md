@@ -1,135 +1,127 @@
-# Bem Estar Jovem      
+# Mente em Equilíbrio 
 
-## Descrição do Projeto
+Aplicação web feita para apoiar jovens no cuidado da saúde mental. Reúne exercícios interativos, check-in emocional, frases SOS, vídeos do YouTube e locais de apoio, em uma interface simples e acolhedora.
 
-O Bem-Estar Jovem é uma aplicação web voltada para apoiar jovens em geral no cuidado com a saúde mental.
-A plataforma reúne ferramentas interativas, frases de apoio, vídeos educativos e locais de ajuda, em uma interface acolhedora.
+Aviso importante: este projeto é educacional. Não substitui acompanhamento médico/psicológico. Em caso de crise, procure ajuda profissional (CVV 188, SAMU 192 ou hospital mais próximo).
 
-## Características Principais
+## Funcionalidades
 
-- **Exercícios Interativos**: ferramentas de respiração e check-in emocional.
+- **Exercícios de Respiração** — componente BreathingCircle com guia visual.
 
-- **Frases de Apoio (SOS)**: mensagens motivacionais em momentos de crise.
+- **Check-in Emocional** — componente CheckIn (escala + feedback).
 
-- **Mapa de Apoio**: listagem e visualização de locais de suporte psicológico.
+- **SOS** — componente SOSCard com frases rápidas de apoio e orientação.
 
-- **Vídeos Educativos**: conteúdos voltados ao bem-estar emocional.
+- **Vídeos Educativos** — página Videos com player do YouTube (thumb + play inline).
 
+- **Locais de Apoio** — componente/página MapOrList para achar serviços na cidade.
 
-## Tecnologias Utilizadas
+- **Navegação** — Navbar + rotas com react-router-dom.
 
-- **React 19**: biblioteca para construção da interface
+## Stack
 
-- **TypeScript**: linguagem principal
+- React 19 + TypeScript
 
-- **Vite**: build tool e servidor de desenvolvimento
+- Vite (dev server e build)
 
-- **TailwindCSS 4**: framework CSS para estilos rápidos e responsivos
+- Tailwind CSS (estilos utilitários)
 
-- **Framer Motion**: animações fluidas e performáticas
+- shadcn/ui (Radix UI) — botões, cards, badges, tabs, tooltips, toasts
 
-- **React Router DOM**: navegação entre páginas
+- Framer Motion (animações)
 
-- **React Hook Form**: gerenciamento de formulários
+- React Router DOM (rotas)
 
-- **Leaflet + React Leaflet** : mapas interativos
+- Lucide (ícones)
 
-- **Headless UI**: componentes acessíveis e estilizados
-
-- **clsx**: utilitário para manipulação de classes CSS
-
-## Configuração do Ambiente
-
-### Pré-requisitos
-
-- Node.js 18+
-- npm ou yarn
-
-## Instalação das Dependências
-
-## Clonar o repositório
-
-```bash
-git clone <repository-url>
-cd bem-estar-jovem
-
-### Instalar dependências
-npm install
-
-### Executar em Desenvolvimento
-npm run dev
-```
-
-## Aplicação rodará em:
-👉 http://localhost:5173
+- Sonner (toasts)
 
 ## Estrutura do Projeto
-```
+```bash
 bem-estar-jovem/
 ├── src/
-│   ├── assets/             # Imagens, ícones, mídias
-│   ├── components/         # Componentes reutilizáveis
-│   │   ├── Header.tsx
-│   │   ├── HelpButton.tsx
+│   ├── assets/                # Imagens e mídias
+│   ├── components/            # Componentes reutilizáveis
+│   │   ├── ui/                # componentes shadcn/ui gerados
 │   │   ├── BreathingCircle.tsx
-│   │   ├── CheckIn.tsx
+│   │   ├── Button.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Header.tsx
+│   │   ├── Layout.tsx
+│   │   ├── MapOrList.tsx
+│   │   ├── MoodTracker.tsx
+│   │   ├── Navbar.tsx
 │   │   ├── SOSCard.tsx
-│   │   ├── VideoPlayer.tsx
-│   │   └── MapOrList.tsx
-│   ├── pages/              # Páginas principais
-│   │   ├── Home.tsx
+│   │   └── VideoPlayer.tsx
+│   ├── data/                  # Dados estáticos (frases SOS, locais de ajuda)
+│   ├── hooks/                 # Hooks (ex.: useTTS)
+│   ├── lib/                   # utilitários (ex.: cn/twMerge)
+│   ├── pages/                 # Páginas
+│   │   ├── Ajuda.tsx
+│   │   ├── Ferramentas.tsx
+│   │   ├── Index.tsx
 │   │   ├── Info.tsx
-│   │   ├── Tools.tsx
-│   │   ├── Videos.tsx
-│   │   └── HelpList.tsx
-│   ├── hooks/              # Hooks customizados
-│   │   └── useTTS.ts
-│   ├── data/               # Dados estáticos
-│   │   ├── sosPhrases.ts
-│   │   └── helpLocations.ts
-│   ├── main.tsx            # Ponto de entrada da aplicação
-│   └── index.css           # Estilos globais (Tailwind)
-├── package.json            # Dependências e scripts
-└── README.md               # Este arquivo
+│   │   ├── NotFound.tsx
+│   │   └── Videos.tsx
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── index.css
+├── package.json
+└── README.md
+```
+## Rotas Principais
+```bash
+/ — Home
+
+/info — Informações
+
+/ferramentas — Exercícios/recursos
+
+/videos — Vídeos educativos (YouTube)
+
+/ajuda — Contatos e orientações
+
+* — NotFound
+```
+## Como rodar localmente
+
+Pré-requisitos: Node.js 18+ e npm (ou pnpm/yarn)
+```bash
+# instalar deps
+npm install
+
+# ambiente de desenvolvimento
+npm run dev   # http://localhost:5173
+
+# build de produção
+npm run build
+
+# servir build localmente (opcional)
+npm run preview
+
+
+Se aparecer erro de alias @/…, confirme seu vite.config.ts com:
+
+resolve: { alias: { '@': new URL('./src', import.meta.url).pathname } }
+
+
+e no tsconfig.json:
+
+"paths": { "@/*": ["src/*"] }
 ```
 
-## Funcionalidades Principais
-- Exercícios de Respiração
 
-Um círculo animado guia o usuário em exercícios de respiração para relaxamento.
+## Acessibilidade & UX
 
--  Check-in Emocional
+Textos claros, contraste alto e navegação simples.
 
-Permite que o jovem registre como está se sentindo e visualize seu progresso.
+Componentes baseados em Radix (foco/teclado).
 
--  Botão SOS
+Conteúdos sensíveis com avisos e canais de ajuda.
 
-Exibe frases motivacionais de apoio imediato e informações de contato de ajuda.
+## Contexto e Público-alvo
 
-- Vídeos Educativos
+Projeto de extensão com foco em saúde mental de jovens (ex.: Lar São Domingos – Maceió/AL).
+Código aberto para incentivar adaptações em escolas, ONGs e iniciativas locais.
 
-Seção com vídeos explicativos sobre saúde mental e bem-estar.
-
-- Locais de Apoio
-
-Listagem e visualização de locais onde o usuário pode buscar ajuda.
-
-## Considerações Técnicas
- Performance
-
-- Vite para build rápido e leve
-
-- Tailwind para estilização otimizada
-
-- Componentização para reuso e manutenção do código
-
-- Escalabilidade
-
-- Estrutura modular com separação clara de responsabilidades
-
-- Suporte a novos componentes e páginas com facilidade
-
-
-## Licença
-
-Este projeto foi desenvolvido para fins acadêmicos e de demonstração, com foco em saúde mental e bem-estar de jovens do Lar São Domingos em Maceió/AL em matéria de Extensão.
+Sugestões e melhorias são bem-vindas!
