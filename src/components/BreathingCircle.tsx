@@ -85,6 +85,7 @@ export default function BreathingCircle() {
   const progress = ((steps[step].duration - timeLeft) / steps[step].duration) * 100;
 
   return (
+
     <div className="flex flex-col items-center justify-center min-h-screen p-8 w-full">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -92,8 +93,25 @@ export default function BreathingCircle() {
         <div className="absolute bottom-2 [10%] -translate-x-1/2 w-96 h-96 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 blur-3xl animate-float" style={{ animationDelay: '2s' }} />
       </div>
 
+      {/* Instructions */}
+        {!running && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center mb-8 max-w-md"
+          >
+            <h1 className="text-3xl font-bold mb-4 bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
+              Exercício de Respiração
+            </h1>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Siga o ritmo do círculo para uma respiração consciente e relaxante. 
+              Cada ciclo dura 16 segundos.
+            </p>
+          </motion.div>
+        )}
+
       {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center">
+      <div className="w-full flex justify-between items-center mt-auto">
         {/* Progress Ring */}
         <div className="relative mb-6">
           <svg className="w-96 h-96 transform -rotate-90" viewBox="0 0 100 100">
@@ -101,7 +119,7 @@ export default function BreathingCircle() {
             <circle
               cx="50"
               cy="50"
-              r="30"
+              r="45"
               fill="none"
               stroke="hsl(var(--border))"
               strokeWidth="0.5"
@@ -111,7 +129,7 @@ export default function BreathingCircle() {
             <circle
               cx="50"
               cy="50"
-              r="30"
+              r="45"
               fill="none"
               stroke="url(#progressGradient)"
               strokeWidth="1"
@@ -158,45 +176,30 @@ export default function BreathingCircle() {
             ease: [0.25, 0.46, 0.45, 0.94],  // Efeito suave na transição
           }}
         >
-  {/* Shimmer Effect */}
-  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-pulse" />
+            {/* Shimmer Effect */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-pulse" />
 
-  {/* Conteúdo dentro do círculo */}
-  <div className="flex flex-col items-center justify-center h-full">
-    <h2 className="text-4xl font-bold mb-4 breathe-text">
-      {steps[step].label}
-    </h2>
-    <p className="text-lg opacity-90 breathe-text">
-      {steps[step].description}
-    </p>
-    {running && (
-      <div className="mt-4 text-2xl font-mono breathe-text">
-        {Math.ceil(timeLeft)}s
-      </div>
-    )}
-  </div>
-</motion.div>
-    </AnimatePresence>
-  </div>
-</div>
-
-
-        {/* Instructions */}
-        {!running && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-8 max-w-md"
-          >
-            <h1 className="text-3xl font-bold mb-4 bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
-              Exercício de Respiração
-            </h1>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              Siga o ritmo do círculo para uma respiração consciente e relaxante. 
-              Cada ciclo dura 16 segundos.
-            </p>
+            {/* Conteúdo dentro do círculo */}
+            <div className="flex flex-col items-center justify-center h-full">
+              <h2 className="text-4xl font-bold mb-4 breathe-text">
+                {steps[step].label}
+              </h2>
+              <p className="text-lg opacity-90 breathe-text">
+                {steps[step].description}
+              </p>
+              {running && (
+                <div className="mt-4 text-2xl font-mono breathe-text">
+                  {Math.ceil(timeLeft)}s
+                </div>
+              )}
+            </div>
           </motion.div>
-        )}
+              </AnimatePresence>
+            </div>
+          </div>
+
+
+        
 
         {running && (
           <motion.div
@@ -209,6 +212,7 @@ export default function BreathingCircle() {
             </p>
           </motion.div>
         )}
+
 
         {/* Controls */}
         <div className="flex gap-1">

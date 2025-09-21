@@ -128,7 +128,8 @@ export const MoodTracker = () => {
               <Button 
                 onClick={handleSubmit}
                 size="lg"
-                className="bg-gradient-wellness hover:shadow-glow transition-all"
+                className="bg-gradient-wellness hover:shadow-glow transition-all text-black"
+                variant="outline"
               >
                 Registrar meu humor
               </Button>
@@ -168,16 +169,11 @@ export const MoodTracker = () => {
               {/* Action buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
-                  onClick={() => setHasSubmitted(false)}
+                  onClick={() => window.location.href = '/ferramentas'}
+                  className="bg-gradient-primary text-black"
                   variant="outline"
                 >
-                  Registrar novamente
-                </Button>
-                <Button 
-                  onClick={() => window.location.href = '/ferramentas'}
-                  className="bg-gradient-primary"
-                >
-                  Experimentar outras ferramentas
+                  Voltar
                 </Button>
               </div>
             </div>

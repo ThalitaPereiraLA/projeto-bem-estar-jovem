@@ -9,7 +9,6 @@ import Info from "./pages/Info";
 import Ferramentas from "./pages/Ferramentas";
 import Videos from "./pages/Videos";
 import Ajuda from "./pages/Ajuda";
-import Tools from "./pages/Tools";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,7 +26,6 @@ const App = () => (
             <Route path="/ferramentas" element={<Ferramentas />} />
             <Route path="/videos" element={<Videos />} />
             <Route path="/ajuda" element={<Ajuda />} />
-            <Route path="/tools" element={<Tools />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

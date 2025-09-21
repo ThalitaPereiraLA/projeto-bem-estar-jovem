@@ -46,30 +46,6 @@ const Ajuda = () => {
     }
   ];
 
-  const helpLines = [
-    {
-      name: "Mapa da Saúde Mental",
-      contact: "www.mapadasaudemental.com.br",
-      description: "Diretório de profissionais de saúde mental",
-      hours: "24h online",
-      type: "website"
-    },
-    {
-      name: "CAPS - Centro de Atenção Psicossocial",
-      contact: "Busque o mais próximo",
-      description: "Atendimento público gratuito em saúde mental",
-      hours: "Seg-Sex: 7h-17h",
-      type: "local"
-    },
-    {
-      name: "Telemedicina SUS",
-      contact: "136",
-      description: "Orientações médicas por telefone",
-      hours: "24h",
-      type: "phone"
-    }
-  ];
-
 
   const warningSignsEmergency = [
     "Ideação ou tentativa de suicídio",
@@ -153,37 +129,7 @@ const Ajuda = () => {
         </div>
       </div>
 
-      {/* Professional Help */}
-      <div className="space-y-4">
-        <h2 className="text-2xl font-bold text-secondary">Ajuda Profissional</h2>
-        <div className="grid md:grid-cols-3 gap-4">
-          {helpLines.map((help, index) => (
-            <Card key={index} className="shadow-medium">
-              <CardHeader className="pb-3">
-                <div className="flex items-center space-x-2 mb-2">
-                  {help.type === 'phone' && <Phone className="w-5 h-5 text-secondary" />}
-                  {help.type === 'website' && <Globe className="w-5 h-5 text-secondary" />}
-                  {help.type === 'local' && <MapPin className="w-5 h-5 text-secondary" />}
-                  <CardTitle className="text-base">{help.name}</CardTitle>
-                </div>
-                <CardDescription className="text-sm">{help.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex items-center space-x-2 text-sm">
-                  <Clock className="w-4 h-4 text-accent" />
-                  <span>{help.hours}</span>
-                </div>
-                <Button variant="secondary" size="sm" className="w-full">
-                  {help.type === 'website' && <ExternalLink className="w-4 h-4 mr-2" />}
-                  {help.type === 'phone' && <Phone className="w-4 h-4 mr-2" />}
-                  {help.type === 'local' && <MapPin className="w-4 h-4 mr-2" />}
-                  {help.contact}
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
+    
 
       {/* Information Sections */}
       <div className="grid lg:grid-cols-2 gap-8">

@@ -21,33 +21,10 @@ import {
   RotateCcw,
   Download
 } from "lucide-react";
+import { MoodTracker } from '@/components/MoodTracker';
 
 const Ferramentas = () => {
     const [selectedMood, setSelectedMood] = useState<string | null>(null);
-
-  const moodOptions = [
-    { 
-      id: 'bad', 
-      icon: <Frown className="w-8 h-8" />, 
-      label: 'Mal', 
-      color: 'bg-destructive text-accent-foreground',
-      message: 'Você não está sozinho. Considere entrar em contato com os recursos abaixo. ❤️'
-    },
-    { 
-      id: 'okay', 
-      icon: <Meh className="w-8 h-8" />, 
-      label: 'Mais ou Menos', 
-      color: 'bg-accent text-accent-foreground',
-      message: 'Dias assim acontecem. Considere usar nossas ferramentas de apoio. 💚'
-    },
-    { 
-      id: 'great', 
-      icon: <Smile className="w-8 h-8" />, 
-      label: 'Bem', 
-      color: 'bg-secondary text-accent-foreground',
-      message: 'Que bom! Continue cuidando bem de si mesmo. 💙'
-    }
-  ];
 
   const breathingExercises = [
     {
@@ -70,17 +47,6 @@ const Ferramentas = () => {
     }
   ];
 
-  const journalPrompts = [
-    "Como me sinto hoje e por quê?",
-    "Pelo que sou grato(a) hoje?",
-    "Qual foi o melhor momento do meu dia?",
-    "O que aprendi sobre mim hoje?",
-    "Como posso cuidar melhor de mim amanhã?",
-    "Que desafio superei recentemente?",
-    "O que me deixa mais feliz?",
-    "Como posso ser mais gentil comigo hoje?"
-  ];
-
   const emergencyTechniques = [
     {
       title: "Técnica 5-4-3-2-1",
@@ -96,10 +62,10 @@ const Ferramentas = () => {
     {
       title: "STOP",
       steps: [
-        "Stop - Pare o que está fazendo",
-        "Take a breath - Respire profundamente",
-        "Observe - Observe seus pensamentos e sentimentos",
-        "Proceed - Continue com consciência"
+        "Pare o que está fazendo",
+        "Respire profundamente",
+        "Observe seus pensamentos e sentimentos",
+        "Continue com consciência"
       ],
       purpose: "Para momentos de estresse intenso"
     }
@@ -119,95 +85,34 @@ const Ferramentas = () => {
         <TabsList className="grid w-full grid-cols-4">
           <TabsTrigger value="mood">Humor</TabsTrigger>
           <TabsTrigger value="breathing">Respiração</TabsTrigger>
-          <TabsTrigger value="journal">Diário</TabsTrigger>
+          <TabsTrigger value="journal">Mensagens</TabsTrigger>
           <TabsTrigger value="emergency">Emergência</TabsTrigger>
         </TabsList>
 
         {/* Medidor de Humor */}
         <TabsContent value="mood" className="space-y-6">
-          <section className="space-y-8">
-            <Card className="shadow-large border-0 bg-gradient-card">
-              <CardHeader className="text-center">
-                <CardTitle className="text-2xl text-primary flex items-center justify-center gap-3">
-                  <Heart className="w-8 h-8" />
-                  Como você está se sentindo?
-                </CardTitle>
-                <CardDescription className="text-base">
-                  Escolha a opção que melhor representa seu estado atual
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-8">
-                <div className="grid md:grid-cols-3 gap-4">
-                  {moodOptions.map((mood) => (
-                    <button
-                      key={mood.id}
-                      onClick={() => setSelectedMood(mood.id)}
-                      className={`p-6 rounded-lg border-2 transition-all hover:scale-105 ${
-                        selectedMood === mood.id 
-                          ? `${mood.color} border-current` 
-                          : 'bg-card border-border hover:border-primary/30'
-                      }`}
-                    >
-                      <div className="flex flex-col items-center space-y-3">
-                        {mood.icon}
-                        <span className="font-medium">{mood.label}</span>
-                      </div>
-                    </button>
-                  ))}
-                </div>
-
-                {selectedMood && (
-                  <div className="space-y-4">
-                    <div className="bg-muted/50 p-6 rounded-lg text-center border-l-4 border-primary">
-                      <p className="font-medium">
-                        {moodOptions.find(m => m.id === selectedMood)?.message}
-                      </p>
-                    </div>
-                    <div className="text-center">
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                        onClick={() => setSelectedMood(null)}
-                      >
-                        <RotateCcw className="w-4 h-4 mr-2" />
-                        Escolher novamente
-                      </Button>
-                    </div>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-          </section>
+          <Card className="p-4 grid md:grid-cols-1 gap-6">
+            <div className="scale-90">
+              <MoodTracker />
+            </div>
+          </Card>
         </TabsContent>
 
         {/* Exercícios de Respiração */}
         <TabsContent value="breathing">
-          <div >
+          <Card className="p-4 grid md:grid-cols-1 gap-6">
+            <div className="scale-90">
               <BreathingCircle />
-          </div>
+            </div>
+          </Card>
         </TabsContent>
 
         {/* Diário Emocional */}
         <TabsContent value="journal" className="space-y-6">
-          <Card className="shadow-medium">
-            <CardHeader>
-              <div className="flex items-center space-x-2">
-                <BookOpen className="w-6 h-6 text-accent" />
-                <CardTitle className="text-accent">Prompts para Reflexão</CardTitle>
-              </div>
-              <CardDescription>
-                Use essas perguntas para se conhecer melhor e processar suas emoções
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-2 gap-4">
-                {journalPrompts.map((prompt, index) => (
-                  <div key={index} className="p-4 bg-muted rounded-lg">
-                    <p className="text-sm font-medium">{prompt}</p>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
+          <Card className="p-4 grid md:grid-cols-1 gap-6">
+            <div>
+              <SOSCard />
+            </div>
           </Card>
         </TabsContent>
 

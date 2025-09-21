@@ -94,7 +94,7 @@ export default function SOSCard() {
           transition={{ duration: 0.35 }}
         >
           <div className="flex items-center justify-center gap-2 mb-1">
-            <FiHeart className="w-6 h-6 text-green-500" />
+            
             <h1 className="text-2xl font-bold text-white">SOS Emocional</h1>
           </div>
           <p className="text-sm text-white/70">
