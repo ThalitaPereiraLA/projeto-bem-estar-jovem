@@ -2,113 +2,133 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Variáveis de respiração */
-:root {
-  --breathe-inspire: 142 70% 55%;
-  --breathe-hold-light: 190 85% 70%;
-  --breathe-expire: 217 85% 65%;
-  --breathe-hold-deep: 262 75% 70%;
+/* Design System - Saúde Mental Theme
+Paleta inspirada na imagem: azul vibrante, teal, verde claro
+Todas as cores em HSL para consistência
+*/
 
-  /* Gradientes */
-  --gradient-inspire: linear-gradient(135deg, hsl(142 70% 55%), hsl(167 85% 65%));
-  --gradient-hold-light: linear-gradient(135deg, hsl(190 85% 70%), hsl(210 85% 75%));
-  --gradient-expire: linear-gradient(135deg, hsl(217 85% 65%), hsl(237 75% 70%));
-  --gradient-hold-deep: linear-gradient(135deg, hsl(262 75% 70%), hsl(282 80% 75%));
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 220 15% 15%;
 
-  /* Sombras */
-  --shadow-breathe: 0 20px 60px -10px hsl(var(--breathe-inspire) / 0.3);
-  --shadow-glow: 0 0 40px hsl(var(--breathe-inspire) / 0.4);
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
 
-  --gradient-calm: linear-gradient(135deg, hsl(167 85% 65%), hsl(190 95% 70%));
-  --gradient-motivation: linear-gradient(135deg, hsl(20 95% 60%), hsl(35 95% 60%));
-  --gradient-comfort: linear-gradient(135deg, hsl(224 70% 60%), hsl(250 85% 68%));
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
 
-  --sos-calm-foreground: #ffffff;
-  --sos-motivation-foreground: #ffffff;
-  --sos-comfort-foreground: #ffffff;
+    /* Azul vibrante como cor primária */
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 98%;
+    --primary-hover: 217 91% 55%;
+
+    /* Teal como cor secundária */
+    --secondary: 188 96% 53%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-hover: 188 96% 48%;
+
+    /* Verde claro como accent */
+    --accent: 84 81% 44%;
+    --accent-foreground: 220 15% 15%;
+    --accent-hover: 84 81% 39%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 217 91% 60%;
+
+    /* Gradientes temáticos */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted)));
+    --gradient-accent: linear-gradient(90deg, hsl(var(--accent)), hsl(84 81% 54%));
+
+    /* Sombras elegantes */
+    --shadow-soft: 0 2px 10px hsl(var(--primary) / 0.1);
+    --shadow-medium: 0 4px 20px hsl(var(--primary) / 0.15);
+    --shadow-large: 0 10px 40px hsl(var(--primary) / 0.2);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 27% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 27% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 27% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 65%;
+    --primary-foreground: 220 27% 8%;
+    --primary-hover: 217 91% 60%;
+
+    --secondary: 188 96% 58%;
+    --secondary-foreground: 220 27% 8%;
+    --secondary-hover: 188 96% 53%;
+
+    --accent: 84 81% 49%;
+    --accent-foreground: 220 27% 8%;
+    --accent-hover: 84 81% 44%;
+
+    --muted: 220 20% 15%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 20% 18%;
+    --input: 220 20% 18%;
+    --ring: 217 91% 65%;
+
+    /* Gradientes modo escuro */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted)));
+    --gradient-accent: linear-gradient(90deg, hsl(var(--accent)), hsl(84 81% 54%));
+
+    --shadow-soft: 0 2px 10px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 4px 20px hsl(0 0% 0% / 0.4);
+    --shadow-large: 0 10px 40px hsl(0 0% 0% / 0.5);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
 }
 
-/* Estilo para o corpo */
-body {
-  background: radial-gradient(ellipse at center, hsl(var(--background)), hsl(225 20% 5%));
-}
+@layer base {
+  * {
+    @apply border-border;
+  }
 
-/* Ajustando a estrutura do container para centralizar os itens na parte superior */
-.relative {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Coloca os itens na parte superior */
-  align-items: center; /* Alinha os itens no centro horizontal */
-  height: 75vh; /* Tamanho total da tela */
-}
-
-/* Círculo de respiração */
-.breathe-circle {
-  width: 250px; /* Tamanho fixo */
-  height: 250px; /* Tamanho fixo */
-  border-radius: 50%; /* Tornar redondo */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-/* Estilos para o texto */
-.breathe-text {
-  text-shadow: 0 2px 10px hsl(0 0% 0% / 0.3);
-  background: linear-gradient(135deg, hsl(0 0% 100% / 0.9), hsl(0 0% 100% / 0.7));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-input[type="range"]::-webkit-slider-runnable-track {
-  height: 8px;
-  border-radius: 9999px;
-  background: linear-gradient(to right, var(--gradient-inspire) 50%, #ddd 50%);
-}
-
-input[type="range"]::-moz-range-track {
-  height: 8px;
-  border-radius: 9999px;
-  background: linear-gradient(to right, var(--gradient-inspire) 50%, #ddd 50%);
-}
-
-/* Base do range */
-input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
-  height: 8px;                 /* altura da barra */
-  border-radius: 9999px;
-  background: #ddd;            /* fundo cinza padrão */
-}
-
-/* Deixa a TRACK transparente pra enxergar o background do input */
-input[type="range"]::-webkit-slider-runnable-track {
-  height: 8px;
-  border-radius: 9999px;
-  background: transparent;
-}
-input[type="range"]::-moz-range-track {
-  height: 8px;
-  border-radius: 9999px;
-  background: transparent;
-}
-
-/* Thumb (bolinha) com o gradiente padrão */
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 18px; height: 18px;
-  border-radius: 50%;
-  background: var(--gradient-inspire);
-  border: 0;
-  cursor: pointer;
-  margin-top: -5px;            /* centraliza na barra de 8px */
-}
-input[type="range"]::-moz-range-thumb {
-  width: 18px; height: 18px;
-  border-radius: 50%;
-  background: var(--gradient-inspire);
-  border: 0;
-  cursor: pointer;
+  body {
+    @apply bg-background text-foreground;
+  }
 }

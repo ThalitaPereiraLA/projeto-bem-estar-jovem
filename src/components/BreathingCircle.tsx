@@ -95,69 +95,69 @@ export default function BreathingCircle() {
       {/* Main Content */}
       <div className="relative z-10 flex flex-col items-center">
         {/* Progress Ring */}
-        <div className="relative mb-8">
-  <svg className="w-96 h-96 transform -rotate-90" viewBox="0 0 100 100">
-    {/* Background Circle */}
-    <circle
-      cx="50"
-      cy="50"
-      r="45"
-      fill="none"
-      stroke="hsl(var(--border))"
-      strokeWidth="0.5"
-      opacity="0.3"
-    />
-    {/* Progress Circle */}
-    <circle
-      cx="50"
-      cy="50"
-      r="45"
-      fill="none"
-      stroke="url(#progressGradient)"
-      strokeWidth="1"
-      strokeLinecap="round"
-      strokeDasharray={`${2 * Math.PI * 45}`}
-      strokeDashoffset={`${2 * Math.PI * 45 * (1 - progress / 100)}`}
-      opacity="0.8"
-      className="transition-all duration-100 ease-out"
-    />
-    <defs>
-      <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stopColor="hsl(var(--breathe-inspire))" />
-        <stop offset="50%" stopColor="hsl(var(--breathe-expire))" />
-        <stop offset="100%" stopColor="hsl(var(--breathe-hold-deep))" />
-      </linearGradient>
-    </defs>
-  </svg>
+        <div className="relative mb-6">
+          <svg className="w-96 h-96 transform -rotate-90" viewBox="0 0 100 100">
+            {/* Background Circle */}
+            <circle
+              cx="50"
+              cy="50"
+              r="30"
+              fill="none"
+              stroke="hsl(var(--border))"
+              strokeWidth="0.5"
+              opacity="0.3"
+            />
+            {/* Progress Circle */}
+            <circle
+              cx="50"
+              cy="50"
+              r="30"
+              fill="none"
+              stroke="url(#progressGradient)"
+              strokeWidth="1"
+              strokeLinecap="round"
+              strokeDasharray={`${2 * Math.PI * 45}`}
+              strokeDashoffset={`${2 * Math.PI * 45 * (1 - progress / 100)}`}
+              opacity="0.8"
+              className="transition-all duration-100 ease-out"
+            />
+            <defs>
+              <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="hsl(var(--breathe-inspire))" />
+                <stop offset="50%" stopColor="hsl(var(--breathe-expire))" />
+                <stop offset="100%" stopColor="hsl(var(--breathe-hold-deep))" />
+              </linearGradient>
+            </defs>
+          </svg>
 
-  {/* Breathing Circle */}
-  <div className="absolute inset-0 flex items-center justify-center">
-    <AnimatePresence mode="wait">
-      <motion.div
-  className="w-80 h-80 mt-20 rounded-full flex items-center justify-center breathe-circle relative overflow-hidden"
-  style={{
-    background: steps[step].gradient, // Muda a cor de fundo conforme a fase
-  }}
-  initial={{
-    scale: 0.9,  // Tamanho inicial
-    opacity: 1,  // Mantém a opacidade constante
-    filter: "none", // Remover blur, para o círculo não sumir
-  }}
-  animate={{
-    scale: running ? steps[step].scale : 1, // Altera o tamanho durante a animação
-    opacity: 1,  // Mantém a opacidade sempre 1
-    filter: "none", // Garante que o filtro de blur não altere a visibilidade
-  }}
-  exit={{
-    scale: 0.9,  // Tamanho final ao sair da animação
-    opacity: 1,  // Mantém a opacidade constante ao sair
-    filter: "none", // Sem filtro de blur ao sair
-  }}
-  transition={{
-    duration: running ? steps[step].duration : 0.8,  // Duração da animação
-    ease: [0.25, 0.46, 0.45, 0.94],  // Efeito suave na transição
-  }}
->
+          {/* Breathing Circle */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <AnimatePresence mode="wait">
+              <motion.div
+          className="w-80 h-80 mt-20 rounded-full flex items-center justify-center breathe-circle relative overflow-hidden"
+          style={{
+            background: steps[step].gradient, // Muda a cor de fundo conforme a fase
+          }}
+          initial={{
+            scale: 0.9,  // Tamanho inicial
+            opacity: 1,  // Mantém a opacidade constante
+            filter: "none", // Remover blur, para o círculo não sumir
+          }}
+          animate={{
+            scale: running ? steps[step].scale : 1, // Altera o tamanho durante a animação
+            opacity: 1,  // Mantém a opacidade sempre 1
+            filter: "none", // Garante que o filtro de blur não altere a visibilidade
+          }}
+          exit={{
+            scale: 0.9,  // Tamanho final ao sair da animação
+            opacity: 1,  // Mantém a opacidade constante ao sair
+            filter: "none", // Sem filtro de blur ao sair
+          }}
+          transition={{
+            duration: running ? steps[step].duration : 0.8,  // Duração da animação
+            ease: [0.25, 0.46, 0.45, 0.94],  // Efeito suave na transição
+          }}
+        >
   {/* Shimmer Effect */}
   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-pulse" />
 
@@ -211,7 +211,7 @@ export default function BreathingCircle() {
         )}
 
         {/* Controls */}
-        <div className="flex gap-6">
+        <div className="flex gap-1">
           <Button
             onClick={running ? handleStop : handleStart}
             size="lg"
