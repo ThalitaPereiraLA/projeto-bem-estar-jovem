@@ -6,42 +6,42 @@ const Info = () => {
     {
       icon: Brain,
       title: "O que é Saúde Mental?",
-      description: "A saúde mental inclui nosso bem-estar emocional, psicológico e social. Ela afeta como pensamos, sentimos e agimos.",
-      content: "Ter boa saúde mental não significa apenas a ausência de transtornos mentais, mas sim a capacidade de lidar com os desafios da vida de forma saudável e produtiva."
+      description: "Saúde mental é o jeito como cuidamos das nossas emoções, pensamentos e relações. Ela influencia como a gente se sente, como reage aos desafios e como convive com os outros.",
+      content: "Ter uma boa saúde mental não significa “nunca ter problemas”. Significa encontrar maneiras saudáveis de lidar com as dificuldades e continuar seguindo em frente."
     },
     {
       icon: Heart,
       title: "Importância do Autocuidado",
-      description: "Cuidar da sua saúde mental é tão importante quanto cuidar da sua saúde física.",
-      content: "Práticas como exercícios regulares, alimentação balanceada, sono adequado e atividades prazerosas contribuem significativamente para o bem-estar mental."
+      description: "Cuidar da sua mente é tão importante quanto cuidar do seu corpo.",
+      content: "Pequenas atitudes fazem diferença: praticar exercícios, dormir bem, se alimentar de forma equilibrada e reservar tempo para coisas que te fazem feliz. Esses hábitos ajudam a manter o bem-estar mental em dia e aumentam sua energia para enfrentar os desafios do dia a dia."
     },
     {
       icon: Users,
       title: "Rede de Apoio",
-      description: "Manter conexões sociais saudáveis é fundamental para a saúde mental.",
-      content: "Família, amigos e comunidade fornecem suporte emocional essencial. Não hesite em compartilhar seus sentimentos com pessoas de confiança."
+      description: "Ter pessoas ao seu lado faz toda a diferença para a saúde mental.",
+      content: "Família, amigos e comunidade podem oferecer o apoio emocional que você precisa nos momentos difíceis. Não guarde tudo só pra você, conversar com alguém de confiança ajuda a aliviar o peso e fortalece os laços que importam."
     }
   ];
 
   const warningSigns = [
-    "Mudanças bruscas de humor",
-    "Isolamento social prolongado",
-    "Perda de interesse em atividades que antes eram prazerosas",
-    "Alterações no sono ou apetite",
-    "Dificuldade de concentração",
-    "Sentimentos persistentes de tristeza ou ansiedade",
-    "Pensamentos negativos sobre si mesmo ou o futuro"
+    "Mudanças de humor muito intensas",
+    "Vontade de se isolar por muito tempo",
+    "Perda de interesse no que antes te fazia bem",
+    "Alterações no sono ou na alimentação",
+    "Dificuldade para se concentrar",
+    "Tristeza ou ansiedade constantes",
+    "Pensamentos negativos sobre si mesmo ou sobre o futuro"
   ];
 
   const selfCareTips = [
-    "Pratique exercícios físicos regularmente",
-    "Mantenha uma rotina de sono saudável",
+    "Pratique algum exercício que você goste",
+    "Tente dormir e acordar em horários regulares",
     "Alimente-se de forma equilibrada",
-    "Reserve tempo para hobbies e lazer",
-    "Pratique técnicas de relaxamento",
-    "Cultive relacionamentos positivos",
-    "Estabeleça limites saudáveis",
-    "Procure ajuda profissional quando necessário"
+    "Reserve tempo para hobbies e coisas que te fazem feliz",
+    "Experimente técnicas de respiração ou relaxamento",
+    "Cultive amizades e relações positivas",
+    "Estabeleça limites saudáveis (diga “não” quando precisar)",
+    "Procure ajuda profissional se sentir necessidade"
   ];
 
   return (
@@ -81,7 +81,7 @@ const Info = () => {
               <CardTitle className="text-destructive">Sinais de Alerta</CardTitle>
             </div>
             <CardDescription>
-              Fique atento a estes sinais que podem indicar necessidade de ajuda profissional
+              É importante prestar atenção ao que o corpo e a mente estão tentando dizer. Se você perceber alguns desses sinais, pode ser hora de buscar ajuda profissional:
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -104,7 +104,7 @@ const Info = () => {
               <CardTitle className="text-accent">Dicas de Autocuidado</CardTitle>
             </div>
             <CardDescription>
-              Práticas simples que podem melhorar significativamente seu bem-estar
+              Pequenas atitudes no dia a dia podem fazer uma grande diferença no seu bem-estar:
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -128,9 +128,9 @@ const Info = () => {
             <div>
               <h3 className="font-semibold text-secondary mb-2">Lembre-se</h3>
               <p className="text-sm text-muted-foreground">
-                Se você está passando por dificuldades emocionais, não hesite em buscar ajuda profissional. 
-                Psicólogos, psiquiatras e outros profissionais de saúde mental estão preparados para oferecer 
-                o suporte necessário. Cuidar da saúde mental é um sinal de força, não de fraqueza.
+                Se você estiver passando por dificuldades emocionais, não enfrente isso sozinho. Psicólogos, 
+                psiquiatras e outros profissionais de saúde mental podem oferecer o suporte que você precisa.
+                Cuidar da mente é um ato de coragem e amor próprio.
               </p>
             </div>
           </div>

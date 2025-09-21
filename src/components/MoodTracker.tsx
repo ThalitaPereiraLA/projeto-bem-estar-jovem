@@ -53,7 +53,7 @@ export const MoodTracker = () => {
       return {
         title: 'Você está indo bem! 😊',
         message: 'É ótimo que você esteja se sentindo equilibrado. Continue cuidando de si mesmo.',
-        suggestions: ['Mantenha suas rotinas saudáveis', 'Compartilhe momentos bons', 'Pratique gratidão']
+        suggestions: ['Mantenha sua rotina saudável', 'Compartilhe momentos bons', 'Pratique gratidão']
       };
     }
     return {

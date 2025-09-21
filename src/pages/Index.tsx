@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Heart, Brain, Users, Shield, ArrowRight } from "lucide-react";
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Heart, Brain, Shield, ArrowRight, PlayCircle } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImage from "@/assets/hero-mental-health.jpg";
 
 const Index = () => {
   return (
@@ -10,21 +9,19 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative bg-gradient-hero text-primary-foreground overflow-hidden">
         <div className="absolute inset-0 bg-black/20" />
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-30"
-        />
+        <div className="absolute inset-0 bg-cover bg-center opacity-30" />
         <div className="relative container mx-auto px-4 py-20 text-center">
           <div className="max-w-4xl mx-auto space-y-6">
             <h1 className="text-4xl md:text-6xl font-bold leading-tight">
               Sua <span className="text-accent">saúde mental</span> importa
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto">
-              Um espaço para entender mais sobre a ansiedade, aprender estratégias simplese e ferramentas para 
-              cuidar do seu bem-estar emocional. <br />
-              Você não está sozinho nessa jornada.
+              Este é um espaço feito para você: aqui você pode entender melhor a ansiedade, 
+              descobrir estratégias simples e explorar ferramentas para cuidar do seu bem-estar emocional. <br />
+              Lembre-se: você não está sozinho nessa jornada.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Link to="/info">
+              <Link to="/info"> 
                 <Button variant="accent" size="lg" className="w-full sm:w-auto">
                   Saiba Mais
                   <ArrowRight className="w-5 h-5" />
@@ -51,7 +48,8 @@ const Index = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Grid centralizada e com 4 colunas no desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           <Card className="shadow-medium hover:shadow-large transition-shadow border-0 bg-gradient-card">
             <CardHeader className="text-center">
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -76,14 +74,15 @@ const Index = () => {
             </CardHeader>
           </Card>
 
+          {/* Novo card: Vídeos */}
           <Card className="shadow-medium hover:shadow-large transition-shadow border-0 bg-gradient-card">
             <CardHeader className="text-center">
               <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="w-6 h-6 text-accent" />
+                <PlayCircle className="w-6 h-6 text-accent" />
               </div>
-              <CardTitle className="text-accent">Comunidade</CardTitle>
+              <CardTitle className="text-accent">Vídeos</CardTitle>
               <CardDescription>
-                Vídeos e conteúdo da nossa comunidade de apoio
+                Aulas e práticas guiadas.
               </CardDescription>
             </CardHeader>
           </Card>

@@ -1,68 +1,71 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Phone, 
-  MessageCircle, 
-  Clock, 
-  MapPin, 
-  Heart, 
+import {
+  Phone,
   AlertTriangle,
-  ExternalLink,
-  Mail,
-  Globe,
-  Users
+  Heart,
+  Users,
 } from "lucide-react";
 
+type BadgeVariant = "default" | "secondary" | "destructive" | "outline";
+
+type EmergencyContact = {
+  name: string;
+  phone: string;
+  description: string;
+  type: string;
+  color: BadgeVariant;
+};
+
 const Ajuda = () => {
-  const emergencyContacts = [
+  const emergencyContacts: EmergencyContact[] = [
     {
       name: "CVV - Centro de Valorização da Vida",
       phone: "188",
       description: "Prevenção do suicídio - Atendimento 24h gratuito",
       type: "Emergência",
-      color: "destructive"
+      color: "destructive",
     },
     {
       name: "SAMU",
       phone: "192",
       description: "Serviço de Atendimento Móvel de Urgência",
       type: "Emergência Médica",
-      color: "destructive"
+      color: "destructive",
     },
     {
       name: "Polícia Militar",
       phone: "190",
       description: "Emergências em geral",
       type: "Segurança",
-      color: "destructive"
+      color: "destructive",
     },
     {
       name: "Disque 100",
       phone: "100",
       description: "Denúncias de violações de direitos humanos",
       type: "Direitos Humanos",
-      color: "secondary"
-    }
+      color: "secondary",
+    },
   ];
 
-
-  const warningSignsEmergency = [
-    "Ideação ou tentativa de suicídio",
-    "Agressividade extrema",
+  const warningSignsEmergency: string[] = [
+    "Pensamentos ou tentativas de suicídio",
+    "Agressividade intensa",
     "Perda total de contato com a realidade",
     "Comportamentos de alto risco",
-    "Uso excessivo de substâncias",
-    "Paranoia ou delírios severos"
+    "Uso excessivo de álcool ou outras drogas",
+    "Paranoia ou delírios graves",
   ];
 
-  const howToHelp = [
-    "Escute sem julgamentos",
-    "Não minimize os sentimentos da pessoa",
-    "Encoraje busca por ajuda profissional",
-    "Mantenha-se disponível",
-    "Cuide também de si mesmo",
-    "Em emergências, não hesite em chamar ajuda"
+  const howToHelp: string[] = [
+    "Escute com atenção e sem julgamentos",
+    "Não diminua os sentimentos da pessoa",
+    "Incentive a procurar ajuda profissional",
+    "Mostre que está disponível para apoiar",
+    "Cuide também da sua própria saúde emocional",
+    "Em situações de emergência, busque ajuda imediatamente",
   ];
 
   return (
@@ -83,7 +86,7 @@ const Ajuda = () => {
             <div className="space-y-2">
               <h3 className="font-bold text-destructive">EM CRISE? PROCURE AJUDA IMEDIATAMENTE</h3>
               <p className="text-sm">
-                Se você ou alguém que conhece está em risco imediato, não espere. 
+                Se você ou alguém que conhece está em risco imediato, não espere.
                 Ligue para os números de emergência abaixo ou vá ao hospital mais próximo.
               </p>
               <div className="flex flex-wrap gap-2 pt-2">
@@ -105,15 +108,15 @@ const Ajuda = () => {
       <div className="space-y-4">
         <h2 className="text-2xl font-bold text-primary">Contatos de Emergência</h2>
         <div className="grid md:grid-cols-2 gap-4">
-          {emergencyContacts.map((contact, index) => (
-            <Card key={index} className="shadow-medium hover:shadow-large transition-shadow">
+          {emergencyContacts.map((contact) => (
+            <Card key={contact.phone} className="shadow-medium hover:shadow-large transition-shadow">
               <CardHeader className="pb-3">
                 <div className="flex items-start justify-between">
                   <div className="space-y-1">
                     <CardTitle className="text-lg">{contact.name}</CardTitle>
                     <CardDescription className="text-sm">{contact.description}</CardDescription>
                   </div>
-                  <Badge variant={contact.color as any} className="ml-2">
+                  <Badge variant={contact.color} className="ml-2">
                     {contact.type}
                   </Badge>
                 </div>
@@ -129,11 +132,9 @@ const Ajuda = () => {
         </div>
       </div>
 
-    
-
       {/* Information Sections */}
       <div className="grid lg:grid-cols-2 gap-8">
-        {/* Warning Signs */}
+        {/* Warning Signs */} 
         <Card className="shadow-medium">
           <CardHeader>
             <CardTitle className="text-destructive flex items-center space-x-2">
@@ -146,8 +147,8 @@ const Ajuda = () => {
           </CardHeader>
           <CardContent>
             <ul className="space-y-2">
-              {warningSignsEmergency.map((sign, index) => (
-                <li key={index} className="flex items-start space-x-2">
+              {warningSignsEmergency.map((sign) => (
+                <li key={sign} className="flex items-start space-x-2">
                   <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0" />
                   <span className="text-sm">{sign}</span>
                 </li>
@@ -169,8 +170,8 @@ const Ajuda = () => {
           </CardHeader>
           <CardContent>
             <ul className="space-y-2">
-              {howToHelp.map((tip, index) => (
-                <li key={index} className="flex items-start space-x-2">
+              {howToHelp.map((tip) => (
+                <li key={tip} className="flex items-start space-x-2">
                   <Heart className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
                   <span className="text-sm">{tip}</span>
                 </li>
@@ -179,7 +180,6 @@ const Ajuda = () => {
           </CardContent>
         </Card>
       </div>
-
     </div>
   );
 };
