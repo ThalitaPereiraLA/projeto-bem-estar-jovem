@@ -39,7 +39,7 @@ export const MoodTracker = () => {
       return {
         title: 'Você não está sozinho 💙',
         message: 'Dias difíceis fazem parte da vida. Considere conversar com alguém de confiança ou usar nossos exercícios de respiração.',
-        suggestions: ['Tente o exercício de respiração', 'Leia uma carta SOS', 'Considere buscar ajuda profissional']
+        suggestions: ['Tente o exercício de respiração', 'Leia uma mensagem em ferramentas', 'Considere buscar ajuda profissional']
       };
     }
     if (mood <= 4) {
