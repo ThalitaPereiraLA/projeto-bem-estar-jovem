@@ -85,36 +85,35 @@ export default function BreathingCircle() {
   const progress = ((steps[step].duration - timeLeft) / steps[step].duration) * 100;
 
   return (
-
     <div className="flex flex-col items-center justify-center min-h-screen p-8 w-full">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-emerald-500/10 to-teal-500/10 blur-3xl animate-float" />
-        <div className="absolute bottom-2 [10%] -translate-x-1/2 w-96 h-96 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 blur-3xl animate-float" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-gradient-to-r from-emerald-500/10 to-teal-500/10 blur-3xl animate-float sm:w-72 sm:h-72 md:w-96 md:h-96 lg:w-96 lg:h-96" />
+        <div className="absolute bottom-2 [10%] -translate-x-1/2 w-96 h-96 rounded-full bg-gradient-to-r from-blue-500/10 to-purple-500/10 blur-3xl animate-float sm:w-80 sm:h-80 md:w-96 md:h-96" style={{ animationDelay: '2s' }} />
       </div>
 
       {/* Instructions */}
-        {!running && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-8 max-w-md"
-          >
-            <h1 className="text-3xl font-bold mb-4 bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
-              Exercício de Respiração
-            </h1>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              Siga o ritmo do círculo para uma respiração consciente e relaxante. 
-              Cada ciclo dura 16 segundos.
-            </p>
-          </motion.div>
-        )}
+      {!running && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-8 max-w-md"
+        >
+          <h1 className="text-3xl font-bold mb-4 bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
+            Exercício de Respiração
+          </h1>
+          <p className="text-muted-foreground text-lg leading-relaxed">
+            Siga o ritmo do círculo para uma respiração consciente e relaxante. 
+            Cada ciclo dura 16 segundos.
+          </p>
+        </motion.div>
+      )}
 
       {/* Main Content */}
-      <div className="w-full flex justify-between items-center mt-auto">
+      <div className="w-full flex flex-col items-center justify-center mt-auto">
         {/* Progress Ring */}
         <div className="relative mb-6">
-          <svg className="w-96 h-96 transform -rotate-90" viewBox="0 0 100 100">
+          <svg className="w-80 h-80 sm:w-96 sm:h-96 transform -rotate-90" viewBox="0 0 100 100">
             {/* Background Circle */}
             <circle
               cx="50"
@@ -152,76 +151,60 @@ export default function BreathingCircle() {
           <div className="absolute inset-0 flex items-center justify-center">
             <AnimatePresence mode="wait">
               <motion.div
-          className="w-80 h-80 mt-20 rounded-full flex items-center justify-center breathe-circle relative overflow-hidden"
-          style={{
-            background: steps[step].gradient, // Muda a cor de fundo conforme a fase
-          }}
-          initial={{
-            scale: 0.9,  // Tamanho inicial
-            opacity: 1,  // Mantém a opacidade constante
-            filter: "none", // Remover blur, para o círculo não sumir
-          }}
-          animate={{
-            scale: running ? steps[step].scale : 1, // Altera o tamanho durante a animação
-            opacity: 1,  // Mantém a opacidade sempre 1
-            filter: "none", // Garante que o filtro de blur não altere a visibilidade
-          }}
-          exit={{
-            scale: 0.9,  // Tamanho final ao sair da animação
-            opacity: 1,  // Mantém a opacidade constante ao sair
-            filter: "none", // Sem filtro de blur ao sair
-          }}
-          transition={{
-            duration: running ? steps[step].duration : 0.8,  // Duração da animação
-            ease: [0.25, 0.46, 0.45, 0.94],  // Efeito suave na transição
-          }}
-        >
-            {/* Shimmer Effect */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-pulse" />
+                className="w-72 h-72 sm:w-96 sm:h-96 mt-20 rounded-full flex items-center justify-center breathe-circle relative overflow-hidden"
+                style={{
+                  background: steps[step].gradient, // Muda a cor de fundo conforme a fase
+                }}
+                initial={{
+                  scale: 0.9,  // Tamanho inicial
+                  opacity: 1,  // Mantém a opacidade constante
+                  filter: "none", // Remover blur, para o círculo não sumir
+                }}
+                animate={{
+                  scale: running ? steps[step].scale : 1, // Altera o tamanho durante a animação
+                  opacity: 1,  // Mantém a opacidade sempre 1
+                  filter: "none", // Garante que o filtro de blur não altere a visibilidade
+                }}
+                exit={{
+                  scale: 0.9,  // Tamanho final ao sair da animação
+                  opacity: 1,  // Mantém a opacidade constante ao sair
+                  filter: "none", // Sem filtro de blur ao sair
+                }}
+                transition={{
+                  duration: running ? steps[step].duration : 0.8,  // Duração da animação
+                  ease: [0.25, 0.46, 0.45, 0.94],  // Efeito suave na transição
+                }}
+              >
+                {/* Shimmer Effect */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-pulse" />
 
-            {/* Conteúdo dentro do círculo */}
-            <div className="flex flex-col items-center justify-center h-full">
-              <h2 className="text-4xl font-bold mb-4 breathe-text">
-                {steps[step].label}
-              </h2>
-              <p className="text-lg opacity-90 breathe-text">
-                {steps[step].description}
-              </p>
-              {running && (
-                <div className="mt-4 text-2xl font-mono breathe-text">
-                  {Math.ceil(timeLeft)}s
+                {/* Conteúdo dentro do círculo */}
+                <div className="flex flex-col items-center justify-center h-full">
+                  <h2 className="text-4xl sm:text-5xl font-bold mb-4 breathe-text">
+                    {steps[step].label}
+                  </h2>
+                  <p className="text-lg sm:text-xl opacity-90 breathe-text">
+                    {steps[step].description}
+                  </p>
+                  {running && (
+                    <div className="mt-4 text-2xl font-mono breathe-text">
+                      {Math.ceil(timeLeft)}s
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-          </motion.div>
-              </AnimatePresence>
-            </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
-
-
-        
-
-        {running && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, y: - 10 }}
-            className="text-center mb-6"
-          >
-            <p className="text-xl text-muted-foreground">
-              Etapa {step + 1} de {steps.length}
-            </p>
-          </motion.div>
-        )}
-
+        </div>
 
         {/* Controls */}
-        <div className="flex gap-1">
+        <div className="flex gap-1 mb-6">
           <Button
             onClick={running ? handleStop : handleStart}
             size="lg"
             className={`px-8 py-4 text-lg font-semibold transition-all duration-300 ${
-              running 
-                ? "bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 shadow-lg shadow-red-500/25" 
+              running
+                ? "bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 shadow-lg shadow-red-500/25"
                 : "bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 shadow-lg shadow-emerald-500/25"
             }`}
           >
@@ -239,38 +222,12 @@ export default function BreathingCircle() {
           </Button>
         </div>
 
-        {/* Breathing Guide */}
-        {running && (
-          <motion.div
-            initial={{ opacity: 1, y: 20 }}
-            animate={{ opacity: 1, y: 20 }}
-            className="mt-12 text-center"
-          >
-            <div className="bg-card/50 backdrop-blur-sm rounded-2xl p-6 border border-border/50">
-              <div className="grid grid-cols-4 gap-6">
-                {steps.map((stepItem, index) => (
-                  <div
-                    key={index}
-                    className={`text-center transition-all duration-500 ${
-                      index === step 
-                        ? "scale-110 opacity-100" 
-                        : "scale-90 opacity-50"
-                    }`}
-                  >
-                    <div
-                      className="w-12 h-12 rounded-full mx-auto mb-2 flex items-center justify-center text-white font-bold text-sm"
-                      style={{ background: stepItem.gradient }}
-                    >
-                      {index + 1}
-                    </div>
-                    <p className="text-sm font-medium">{stepItem.label}</p>
-                    <p className="text-xs text-muted-foreground">{stepItem.duration}s</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        )}
+        {/* Breath Instructions (Momento de Respiração) */}
+        <div className="text-center mt-6 max-w-md">
+          <p className="text-lg font-medium text-gray-700">
+            {steps[step].label}: {steps[step].description}
+          </p>
+        </div>
       </div>
     </div>
   );

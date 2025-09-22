@@ -48,6 +48,13 @@ const Ajuda = () => {
       type: "Direitos Humanos",
       color: "secondary",
     },
+    {
+      name: "CAPS - Centro de Atenção Psicossocial",
+      phone: "Ligue para a unidade mais próxima",
+      description: "Tratamento gratuito e apoio psicológico para pessoas com sofrimento mental",
+      type: "Saúde Mental",
+      color: "secondary",
+    },
   ];
 
   const warningSignsEmergency: string[] = [
@@ -134,7 +141,7 @@ const Ajuda = () => {
 
       {/* Information Sections */}
       <div className="grid lg:grid-cols-2 gap-8">
-        {/* Warning Signs */} 
+        {/* Warning Signs */}
         <Card className="shadow-medium">
           <CardHeader>
             <CardTitle className="text-destructive flex items-center space-x-2">

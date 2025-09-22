@@ -67,6 +67,10 @@ export const MoodTracker = () => {
     setHasSubmitted(true);
   };
 
+  const handleBack = () => {
+    setHasSubmitted(false);
+  };
+
   const MoodIcon = getMoodIcon(currentMood);
   const support = getSupportMessage(currentMood);
 
@@ -169,7 +173,7 @@ export const MoodTracker = () => {
               {/* Action buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
-                  onClick={() => window.location.href = '/ferramentas'}
+                  onClick={handleBack}
                   className="bg-gradient-primary text-black"
                   variant="outline"
                 >
