@@ -51,7 +51,7 @@ const Ajuda = () => {
     {
       name: "CAPS - Centro de Atenção Psicossocial",
       phone: "Ligue para a unidade mais próxima",
-      description: "Tratamento gratuito e apoio psicológico para pessoas com sofrimento mental",
+      description: "Tratamento gratuito e apoio psicológico, focando na reabilitação e reintegração social de pessoas com sofrimento psíquico ou dependência de substâncias.",
       type: "Saúde Mental",
       color: "secondary",
     },
